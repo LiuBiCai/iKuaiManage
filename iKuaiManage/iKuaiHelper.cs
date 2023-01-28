@@ -25,7 +25,9 @@ namespace iKuaiManage
         enum action        
         {
             show,
-            edit
+            edit,
+            up,
+            down,
         }
         enum funcName
         {
@@ -98,7 +100,24 @@ namespace iKuaiManage
             }
             return true;
         }
-
+        private bool EnableL2tp(string id,bool enable)
+        {
+            var postData = GetPostData(funcName.l2tp_client, enable?action.up:action.down, id);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("3000"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool EnableL2tp(List<L2TP> l2TPs, bool enable)
+        {
+            foreach (var l2tp in l2TPs)
+            {
+                EnableL2tp(l2tp.id.ToString(), enable);  
+            }
+            return true;
+        }
 
         #endregion
 
@@ -168,16 +187,27 @@ namespace iKuaiManage
         }
 
 
-        private string GetPostData(funcName fun,action action)
+        private string GetPostData(funcName fun,action action,string info="")
         {
             string param = "";
-            if(fun==funcName.l2tp_client&&action==action.show)
+            if (fun == funcName.l2tp_client)
             {
-                var type = "\"TYPE\":\"total,data\",";
-                var  other = "\"limit\":\"0,500\",\"ORDER_BY\":\"\",\"ORDER\":\"\"";
-                param = type + other;
-            }
+                switch (action)
+                {
+                    case action.show:
+                        var type = "\"TYPE\":\"total,data\",";
+                        var other = "\"limit\":\"0,500\",\"ORDER_BY\":\"\",\"ORDER\":\"\"";
+                        param = type + other;
+                        break;
+                    case action.up:
+                    case action.down:
+                        param = "\"id\":\""+info+"\"";
+                        break;
 
+                }
+            }
+                             
+            
             var result = GetParam(fun, action, param);
             return result;
         }

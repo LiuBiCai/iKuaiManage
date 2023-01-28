@@ -111,5 +111,56 @@ namespace iKuaiManage
         {
             iKuaiHelper.LoginiKuai("admin2", "Sc147258");
         }
+
+        private void 线路开启ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rows = gridView.GetSelectedRows();
+            if (rows.Count() != 0)
+            {
+                var selectedL2tps = new List<L2TP>();
+                foreach (var row in rows)
+                {
+                    int pos = (int)gridView.GetRowCellValue(row, "id");
+                    foreach (var info in l2tps)
+                    {
+                        if (info.id == pos)
+                        {
+                            selectedL2tps.Add(info);
+                            break;
+                        }
+                    }
+
+                }
+                iKuaiHelper.EnableL2tp(selectedL2tps, true);
+            }
+
+            RefreshL2tpList();
+        }
+
+        private void 线路关闭ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rows = gridView.GetSelectedRows();
+            if (rows.Count() != 0)
+            {
+                var selectedL2tps = new List<L2TP>();
+                foreach (var row in rows)
+                {
+                    int pos = (int)gridView.GetRowCellValue(row, "id");
+                    foreach (var info in l2tps)
+                    {
+                        if (info.id == pos)
+                        {
+                            selectedL2tps.Add(info);
+                            break;
+                        }
+                    }
+
+                }
+                iKuaiHelper.EnableL2tp(selectedL2tps, false);
+            }
+
+            RefreshL2tpList();
+
+        }
     }
 }

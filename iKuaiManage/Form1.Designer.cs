@@ -195,7 +195,7 @@ namespace iKuaiManage
             this.线路开启ToolStripMenuItem,
             this.线路关闭ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
             // 
             // 服务器IP1ToolStripMenuItem
             // 
@@ -333,14 +333,16 @@ namespace iKuaiManage
             // 线路开启ToolStripMenuItem
             // 
             this.线路开启ToolStripMenuItem.Name = "线路开启ToolStripMenuItem";
-            this.线路开启ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路开启ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.线路开启ToolStripMenuItem.Text = "线路开启";
+            this.线路开启ToolStripMenuItem.Click += new System.EventHandler(this.线路开启ToolStripMenuItem_Click);
             // 
             // 线路关闭ToolStripMenuItem
             // 
             this.线路关闭ToolStripMenuItem.Name = "线路关闭ToolStripMenuItem";
-            this.线路关闭ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路关闭ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.线路关闭ToolStripMenuItem.Text = "线路关闭";
+            this.线路关闭ToolStripMenuItem.Click += new System.EventHandler(this.线路关闭ToolStripMenuItem_Click);
             // 
             // Form1
             // 

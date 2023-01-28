@@ -6,15 +6,27 @@ using System.Threading.Tasks;
 
 namespace iKuaiManage
 {
-    class ResultData
+    class ResultDataL2tp
     {
-        public Data Data { get; set; }
+        public DataL2tp Data { get; set; }
         public string ErrMsg { get; set; }
         public int Result { get; set; }
     }
-    class Data
+    class DataL2tp
     {
         public int total { get; set; }
         public L2TP[] data { get; set; }
     }
+    class ResultDataStreamIpport
+    {
+        public DataStreamIpport Data { get; set; }
+        public string ErrMsg { get; set; }
+        public int Result { get; set; }
+    }
+    class DataStreamIpport
+    {
+        public int total { get; set; }
+        public StreamIpport[] data { get; set; }
+    }
+
 }

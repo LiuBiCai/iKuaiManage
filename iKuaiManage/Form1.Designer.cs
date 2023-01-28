@@ -39,14 +39,20 @@ namespace iKuaiManage
             this.beiL2tpServerIP = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.bbiRefreshL2tpList = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiUpdateStreamIpportList = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rpgSkins = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgSkins = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.服务器IP1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.服务器改为指定IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.线路开启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.线路关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,11 +62,18 @@ namespace iKuaiManage
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.testBtn = new System.Windows.Forms.Button();
-            this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.sbLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.线路开启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.线路关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -69,6 +82,10 @@ namespace iKuaiManage
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -83,13 +100,15 @@ namespace iKuaiManage
             this.服务器IP改为,
             this.beiL2tpServerIP,
             this.bbiRefreshL2tpList,
-            this.bbiLogin});
+            this.bbiLogin,
+            this.bbiUpdateStreamIpportList});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl.MaxItemId = 6;
+            this.ribbonControl.MaxItemId = 7;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage});
+            this.ribbonPage,
+            this.ribbonPage1});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             this.ribbonControl.Size = new System.Drawing.Size(1207, 197);
@@ -139,6 +158,23 @@ namespace iKuaiManage
             this.bbiRefreshL2tpList.Name = "bbiRefreshL2tpList";
             this.bbiRefreshL2tpList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefreshL2tpList_ItemClick);
             // 
+            // bbiLogin
+            // 
+            this.bbiLogin.Caption = "登陆";
+            this.bbiLogin.Id = 5;
+            this.bbiLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.Image")));
+            this.bbiLogin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.LargeImage")));
+            this.bbiLogin.Name = "bbiLogin";
+            // 
+            // bbiUpdateStreamIpportList
+            // 
+            this.bbiUpdateStreamIpportList.Caption = "刷新端口分流";
+            this.bbiUpdateStreamIpportList.Id = 6;
+            this.bbiUpdateStreamIpportList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiUpdateStreamIpportList.ImageOptions.Image")));
+            this.bbiUpdateStreamIpportList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiUpdateStreamIpportList.ImageOptions.LargeImage")));
+            this.bbiUpdateStreamIpportList.Name = "bbiUpdateStreamIpportList";
+            this.bbiUpdateStreamIpportList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUpdateStreamIpportList_ItemClick);
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -147,17 +183,30 @@ namespace iKuaiManage
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "L2TP";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefreshL2tpList);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Task";
+            // 
             // rpgSkins
             // 
             this.rpgSkins.ItemLinks.Add(this.beiL2tpServerIP);
             this.rpgSkins.Name = "rpgSkins";
             this.rpgSkins.Text = "服务器地址";
             // 
-            // ribbonPageGroup1
+            // ribbonPage1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefreshL2tpList);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Task";
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "端口分流";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiUpdateStreamIpportList);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Task";
             // 
             // tabPage1
             // 
@@ -195,7 +244,7 @@ namespace iKuaiManage
             this.线路开启ToolStripMenuItem,
             this.线路关闭ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 100);
             // 
             // 服务器IP1ToolStripMenuItem
             // 
@@ -210,6 +259,20 @@ namespace iKuaiManage
             this.服务器改为指定IPToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
             this.服务器改为指定IPToolStripMenuItem.Text = "服务器改为指定IP";
             this.服务器改为指定IPToolStripMenuItem.Click += new System.EventHandler(this.服务器改为指定IPToolStripMenuItem_Click);
+            // 
+            // 线路开启ToolStripMenuItem
+            // 
+            this.线路开启ToolStripMenuItem.Name = "线路开启ToolStripMenuItem";
+            this.线路开启ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路开启ToolStripMenuItem.Text = "线路开启";
+            this.线路开启ToolStripMenuItem.Click += new System.EventHandler(this.线路开启ToolStripMenuItem_Click);
+            // 
+            // 线路关闭ToolStripMenuItem
+            // 
+            this.线路关闭ToolStripMenuItem.Name = "线路关闭ToolStripMenuItem";
+            this.线路关闭ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路关闭ToolStripMenuItem.Text = "线路关闭";
+            this.线路关闭ToolStripMenuItem.Click += new System.EventHandler(this.线路关闭ToolStripMenuItem_Click);
             // 
             // gridView
             // 
@@ -293,7 +356,9 @@ namespace iKuaiManage
             // 
             // tabControl1
             // 
+            this.tabControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 197);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -301,6 +366,89 @@ namespace iKuaiManage
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1207, 483);
             this.tabControl1.TabIndex = 5;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.gridControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1199, 452);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "端口分流";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip2;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1199, 452);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1,
+            this.gridView2});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn7,
+            this.gridColumn12,
+            this.gridColumn8,
+            this.gridColumn9});
+            this.gridView1.DetailHeight = 485;
+            this.gridView1.FixedLineWidth = 3;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "ID";
+            this.gridColumn7.FieldName = "id";
+            this.gridColumn7.MinWidth = 25;
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            this.gridColumn7.Width = 99;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "线路";
+            this.gridColumn12.FieldName = "interf";
+            this.gridColumn12.MinWidth = 25;
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 3;
+            this.gridColumn12.Width = 99;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "源地址";
+            this.gridColumn8.FieldName = "src_addr";
+            this.gridColumn8.MinWidth = 25;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.Width = 99;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "是否开启";
+            this.gridColumn9.FieldName = "enabled";
+            this.gridColumn9.MinWidth = 25;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 2;
+            this.gridColumn9.Width = 99;
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.Name = "gridView2";
             // 
             // testBtn
             // 
@@ -312,17 +460,9 @@ namespace iKuaiManage
             this.testBtn.UseVisualStyleBackColor = true;
             this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
             // 
-            // bbiLogin
-            // 
-            this.bbiLogin.Caption = "登陆";
-            this.bbiLogin.Id = 5;
-            this.bbiLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.Image")));
-            this.bbiLogin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.LargeImage")));
-            this.bbiLogin.Name = "bbiLogin";
-            // 
             // sbLogin
             // 
-            this.sbLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbLogin.ImageOptions.Image")));
             this.sbLogin.Location = new System.Drawing.Point(1021, 101);
             this.sbLogin.Name = "sbLogin";
             this.sbLogin.Size = new System.Drawing.Size(105, 42);
@@ -330,19 +470,19 @@ namespace iKuaiManage
             this.sbLogin.Text = "登陆";
             this.sbLogin.Click += new System.EventHandler(this.sbLogin_Click);
             // 
-            // 线路开启ToolStripMenuItem
+            // barButtonItem1
             // 
-            this.线路开启ToolStripMenuItem.Name = "线路开启ToolStripMenuItem";
-            this.线路开启ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.线路开启ToolStripMenuItem.Text = "线路开启";
-            this.线路开启ToolStripMenuItem.Click += new System.EventHandler(this.线路开启ToolStripMenuItem_Click);
+            this.barButtonItem1.Caption = "刷新L2tp列表";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // 线路关闭ToolStripMenuItem
+            // contextMenuStrip2
             // 
-            this.线路关闭ToolStripMenuItem.Name = "线路关闭ToolStripMenuItem";
-            this.线路关闭ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.线路关闭ToolStripMenuItem.Text = "线路关闭";
-            this.线路关闭ToolStripMenuItem.Click += new System.EventHandler(this.线路关闭ToolStripMenuItem_Click);
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -356,7 +496,7 @@ namespace iKuaiManage
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
-            this.Text = "爱快管理系统 v0.2";
+            this.Text = "爱快管理系统 v0.3";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -366,6 +506,10 @@ namespace iKuaiManage
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +546,18 @@ namespace iKuaiManage
         private DevExpress.XtraEditors.SimpleButton sbLogin;
         private System.Windows.Forms.ToolStripMenuItem 线路开启ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 线路关闭ToolStripMenuItem;
+        private DevExpress.XtraBars.BarButtonItem bbiUpdateStreamIpportList;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }

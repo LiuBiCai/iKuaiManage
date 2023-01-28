@@ -32,6 +32,7 @@ namespace iKuaiManage
         enum funcName
         {
             l2tp_client,
+            stream_ipport
         }
         #endregion
         #region Init
@@ -64,7 +65,7 @@ namespace iKuaiManage
             if (resultData.Html.Contains("3000"))
             {
                 var change= resultData.Html.Replace("interface", "interf");
-                var result = JsonConvert.DeserializeObject<ResultData>(change);
+                var result = JsonConvert.DeserializeObject<ResultDataL2tp>(change);
                 return result.Data.data.ToList();
                 //return true;
             }
@@ -119,8 +120,27 @@ namespace iKuaiManage
             return true;
         }
 
-        #endregion
 
+
+        #endregion
+        #region StreamIpport
+        public List<StreamIpport> GetStreamIpportList()
+        {
+            var postData = GetPostData(funcName.stream_ipport, action.show);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("3000"))
+            {
+                var change = resultData.Html.Replace("interface", "interf");
+                var result = JsonConvert.DeserializeObject<ResultDataStreamIpport>(change);
+                return result.Data.data.ToList();
+                //return true;
+            }
+            return new List<StreamIpport>();
+        }
+        
+
+
+        #endregion
 
         #region tool
         /// <summary>

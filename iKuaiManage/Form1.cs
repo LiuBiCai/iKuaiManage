@@ -13,8 +13,10 @@ namespace iKuaiManage
 {
     public partial class Form1 : RibbonForm
     {
-        List<L2TP> l2tps = new List<L2TP>();
         iKuaiHelper iKuaiHelper = new iKuaiHelper();
+        List<L2TP> l2tps = new List<L2TP>();
+        List<StreamIpport> streamIpports = new List<StreamIpport>();
+       
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +37,9 @@ namespace iKuaiManage
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gridControl.DataSource =l2tps;
+            gridControl.DataSource = l2tps;
+            gridControl1.DataSource = streamIpports;
+
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
@@ -160,6 +164,23 @@ namespace iKuaiManage
             }
 
             RefreshL2tpList();
+
+        }
+
+        private void bbiUpdateStreamIpportList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RefresStreamIpportList();
+        }
+        private void RefresStreamIpportList()
+        {
+            streamIpports.Clear();
+            iKuaiHelper.LoadCookie("admin2");
+            streamIpports.AddRange(iKuaiHelper.GetStreamIpportList());
+            gridView1.RefreshData();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
 
         }
     }

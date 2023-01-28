@@ -71,6 +71,7 @@
     <Compile Include="iKuaiHelper.cs" />
     <Compile Include="JSON\L2TP.cs" />
     <Compile Include="JSON\ResultData.cs" />
+    <Compile Include="JSON\StreamIpport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

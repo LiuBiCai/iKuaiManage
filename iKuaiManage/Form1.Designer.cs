@@ -29,37 +29,24 @@ namespace iKuaiManage
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.服务器IP改为 = new DevExpress.XtraBars.BarStaticItem();
+            this.beiL2tpServerIP = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.bbiRefreshL2tpList = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSkins = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.服务器IP1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.服务器改为指定IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,21 +54,20 @@ namespace iKuaiManage
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.testBtn = new System.Windows.Forms.Button();
+            this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.sbLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.线路开启ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.线路关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,13 +79,19 @@ namespace iKuaiManage
             this.ribbonControl.SearchEditItem,
             this.skinRibbonGalleryBarItem,
             this.skinDropDownButtonItem,
-            this.skinPaletteRibbonGalleryBarItem});
+            this.skinPaletteRibbonGalleryBarItem,
+            this.服务器IP改为,
+            this.beiL2tpServerIP,
+            this.bbiRefreshL2tpList,
+            this.bbiLogin});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ribbonControl.MaxItemId = 2;
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonControl.MaxItemId = 6;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
+            this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1});
             this.ribbonControl.Size = new System.Drawing.Size(1207, 197);
             // 
             // skinRibbonGalleryBarItem
@@ -119,255 +111,53 @@ namespace iKuaiManage
             this.skinPaletteRibbonGalleryBarItem.Id = 3;
             this.skinPaletteRibbonGalleryBarItem.Name = "skinPaletteRibbonGalleryBarItem";
             // 
+            // 服务器IP改为
+            // 
+            this.服务器IP改为.Caption = "barStaticItem1";
+            this.服务器IP改为.Id = 2;
+            this.服务器IP改为.Name = "服务器IP改为";
+            // 
+            // beiL2tpServerIP
+            // 
+            this.beiL2tpServerIP.Caption = "服务器IP改为";
+            this.beiL2tpServerIP.Edit = this.repositoryItemTextEdit1;
+            this.beiL2tpServerIP.EditWidth = 80;
+            this.beiL2tpServerIP.Id = 3;
+            this.beiL2tpServerIP.Name = "beiL2tpServerIP";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // bbiRefreshL2tpList
+            // 
+            this.bbiRefreshL2tpList.Caption = "刷新L2tp列表";
+            this.bbiRefreshL2tpList.Id = 4;
+            this.bbiRefreshL2tpList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRefreshL2tpList.ImageOptions.Image")));
+            this.bbiRefreshL2tpList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRefreshL2tpList.ImageOptions.LargeImage")));
+            this.bbiRefreshL2tpList.Name = "bbiRefreshL2tpList";
+            this.bbiRefreshL2tpList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefreshL2tpList_ItemClick);
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1,
             this.rpgSkins});
             this.ribbonPage.Name = "ribbonPage";
-            this.ribbonPage.Text = "ribbonPage";
+            this.ribbonPage.Text = "L2TP";
             // 
             // rpgSkins
             // 
+            this.rpgSkins.ItemLinks.Add(this.beiL2tpServerIP);
             this.rpgSkins.Name = "rpgSkins";
-            this.rpgSkins.Text = "Skins";
+            this.rpgSkins.Text = "服务器地址";
             // 
-            // tabPage3
+            // ribbonPageGroup1
             // 
-            this.tabPage3.Controls.Add(this.gridControl2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(1199, 452);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "FIFA";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.gridControl2.Location = new System.Drawing.Point(3, 4);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1193, 444);
-            this.gridControl2.TabIndex = 1;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn8,
-            this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn16,
-            this.gridColumn11,
-            this.gridColumn12,
-            this.gridColumn13,
-            this.gridColumn14,
-            this.gridColumn15});
-            this.gridView1.DetailHeight = 450;
-            this.gridView1.FixedLineWidth = 3;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn17,
-            this.gridColumn18,
-            this.gridColumn20,
-            this.gridColumn19,
-            this.gridColumn21,
-            this.gridColumn22});
-            this.gridView2.DetailHeight = 485;
-            this.gridView2.FixedLineWidth = 3;
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.MultiSelect = true;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "位置";
-            this.gridColumn17.FieldName = "Pos";
-            this.gridColumn17.MinWidth = 25;
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 0;
-            this.gridColumn17.Width = 99;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "账号";
-            this.gridColumn18.FieldName = "Logined";
-            this.gridColumn18.MinWidth = 25;
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 1;
-            this.gridColumn18.Width = 99;
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "任务";
-            this.gridColumn20.FieldName = "Tasks";
-            this.gridColumn20.MinWidth = 25;
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 2;
-            this.gridColumn20.Width = 99;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "场次";
-            this.gridColumn19.FieldName = "PlayedCount";
-            this.gridColumn19.MinWidth = 23;
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 3;
-            this.gridColumn19.Width = 86;
-            // 
-            // gridColumn21
-            // 
-            this.gridColumn21.Caption = "状态";
-            this.gridColumn21.FieldName = "Statu";
-            this.gridColumn21.MinWidth = 25;
-            this.gridColumn21.Name = "gridColumn21";
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 4;
-            this.gridColumn21.Width = 99;
-            // 
-            // gridColumn22
-            // 
-            this.gridColumn22.Caption = "IP";
-            this.gridColumn22.FieldName = "IP";
-            this.gridColumn22.MinWidth = 25;
-            this.gridColumn22.Name = "gridColumn22";
-            this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 5;
-            this.gridColumn22.Width = 99;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.gridControl1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1199, 452);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "自动倒货";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl1.Location = new System.Drawing.Point(3, 4);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl1.MenuManager = this.ribbonControl;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1193, 444);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView3
-            // 
-            this.gridView3.GridControl = this.gridControl1;
-            this.gridView3.Name = "gridView3";
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "位置";
-            this.gridColumn8.FieldName = "Pos";
-            this.gridColumn8.MinWidth = 23;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 0;
-            this.gridColumn8.Width = 86;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "账号";
-            this.gridColumn9.FieldName = "Account";
-            this.gridColumn9.MinWidth = 23;
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 1;
-            this.gridColumn9.Width = 86;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "现有金币";
-            this.gridColumn10.FieldName = "NowCoin";
-            this.gridColumn10.MinWidth = 23;
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
-            this.gridColumn10.Width = 86;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "任务";
-            this.gridColumn16.FieldName = "Task";
-            this.gridColumn16.MinWidth = 23;
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 3;
-            this.gridColumn16.Width = 86;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "起拍价";
-            this.gridColumn11.FieldName = "Start";
-            this.gridColumn11.MinWidth = 23;
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 4;
-            this.gridColumn11.Width = 86;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "一口价";
-            this.gridColumn12.FieldName = "Buy";
-            this.gridColumn12.MinWidth = 23;
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
-            this.gridColumn12.Width = 86;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "时间";
-            this.gridColumn13.FieldName = "NowTime";
-            this.gridColumn13.MinWidth = 23;
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 6;
-            this.gridColumn13.Width = 86;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "已导数量";
-            this.gridColumn14.FieldName = "HadCount";
-            this.gridColumn14.MinWidth = 23;
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 7;
-            this.gridColumn14.Width = 86;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "已导金币";
-            this.gridColumn15.FieldName = "HadCoins";
-            this.gridColumn15.MinWidth = 23;
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 8;
-            this.gridColumn15.Width = 86;
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefreshL2tpList);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Task";
             // 
             // tabPage1
             // 
@@ -378,11 +168,12 @@ namespace iKuaiManage
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Size = new System.Drawing.Size(1199, 452);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "自动登录";
+            this.tabPage1.Text = "L2TP";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // gridControl
             // 
+            this.gridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.gridControl.Location = new System.Drawing.Point(3, 4);
@@ -392,12 +183,33 @@ namespace iKuaiManage
             this.gridControl.Size = new System.Drawing.Size(1193, 444);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView});
+            this.gridView,
+            this.gridView4});
             // 
-            // gridView4
+            // contextMenuStrip1
             // 
-            this.gridView4.GridControl = this.gridControl;
-            this.gridView4.Name = "gridView4";
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.服务器IP1ToolStripMenuItem,
+            this.服务器改为指定IPToolStripMenuItem,
+            this.线路开启ToolStripMenuItem,
+            this.线路关闭ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 100);
+            // 
+            // 服务器IP1ToolStripMenuItem
+            // 
+            this.服务器IP1ToolStripMenuItem.Name = "服务器IP1ToolStripMenuItem";
+            this.服务器IP1ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.服务器IP1ToolStripMenuItem.Text = "服务器IP+1";
+            this.服务器IP1ToolStripMenuItem.Click += new System.EventHandler(this.服务器IP1ToolStripMenuItem_Click);
+            // 
+            // 服务器改为指定IPToolStripMenuItem
+            // 
+            this.服务器改为指定IPToolStripMenuItem.Name = "服务器改为指定IPToolStripMenuItem";
+            this.服务器改为指定IPToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.服务器改为指定IPToolStripMenuItem.Text = "服务器改为指定IP";
+            this.服务器改为指定IPToolStripMenuItem.Click += new System.EventHandler(this.服务器改为指定IPToolStripMenuItem_Click);
             // 
             // gridView
             // 
@@ -407,8 +219,7 @@ namespace iKuaiManage
             this.gridColumn3,
             this.gridColumn4,
             this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7});
+            this.gridColumn6});
             this.gridView.DetailHeight = 485;
             this.gridView.FixedLineWidth = 3;
             this.gridView.GridControl = this.gridControl;
@@ -417,8 +228,8 @@ namespace iKuaiManage
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "位置";
-            this.gridColumn1.FieldName = "Pos";
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "id";
             this.gridColumn1.MinWidth = 25;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
@@ -427,8 +238,8 @@ namespace iKuaiManage
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "已登录账号";
-            this.gridColumn2.FieldName = "Logined";
+            this.gridColumn2.Caption = "拨号名";
+            this.gridColumn2.FieldName = "name";
             this.gridColumn2.MinWidth = 25;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
@@ -437,8 +248,8 @@ namespace iKuaiManage
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "欲登录账号";
-            this.gridColumn3.FieldName = "Logining";
+            this.gridColumn3.Caption = "本地IP";
+            this.gridColumn3.FieldName = "ip_addr";
             this.gridColumn3.MinWidth = 25;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
@@ -447,8 +258,8 @@ namespace iKuaiManage
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "任务";
-            this.gridColumn4.FieldName = "Tasks";
+            this.gridColumn4.Caption = "是否开启";
+            this.gridColumn4.FieldName = "enabled";
             this.gridColumn4.MinWidth = 25;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -457,8 +268,8 @@ namespace iKuaiManage
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "状态";
-            this.gridColumn5.FieldName = "Statu";
+            this.gridColumn5.Caption = "服务器地址";
+            this.gridColumn5.FieldName = "server";
             this.gridColumn5.MinWidth = 25;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -467,28 +278,22 @@ namespace iKuaiManage
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "IP";
-            this.gridColumn6.FieldName = "IP";
+            this.gridColumn6.Caption = "线路";
+            this.gridColumn6.FieldName = "interf";
             this.gridColumn6.MinWidth = 25;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             this.gridColumn6.Width = 99;
             // 
-            // gridColumn7
+            // gridView4
             // 
-            this.gridColumn7.Caption = "PSN ID";
-            this.gridColumn7.FieldName = "ID";
-            this.gridColumn7.MinWidth = 23;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridView4.GridControl = this.gridControl;
+            this.gridView4.Name = "gridView4";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 197);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -503,34 +308,61 @@ namespace iKuaiManage
             this.testBtn.Name = "testBtn";
             this.testBtn.Size = new System.Drawing.Size(125, 59);
             this.testBtn.TabIndex = 6;
-            this.testBtn.Text = "button1";
+            this.testBtn.Text = "Test";
             this.testBtn.UseVisualStyleBackColor = true;
             this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
+            // 
+            // bbiLogin
+            // 
+            this.bbiLogin.Caption = "登陆";
+            this.bbiLogin.Id = 5;
+            this.bbiLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.Image")));
+            this.bbiLogin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiLogin.ImageOptions.LargeImage")));
+            this.bbiLogin.Name = "bbiLogin";
+            // 
+            // sbLogin
+            // 
+            this.sbLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbLogin.Location = new System.Drawing.Point(1021, 101);
+            this.sbLogin.Name = "sbLogin";
+            this.sbLogin.Size = new System.Drawing.Size(105, 42);
+            this.sbLogin.TabIndex = 8;
+            this.sbLogin.Text = "登陆";
+            this.sbLogin.Click += new System.EventHandler(this.sbLogin_Click);
+            // 
+            // 线路开启ToolStripMenuItem
+            // 
+            this.线路开启ToolStripMenuItem.Name = "线路开启ToolStripMenuItem";
+            this.线路开启ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路开启ToolStripMenuItem.Text = "线路开启";
+            // 
+            // 线路关闭ToolStripMenuItem
+            // 
+            this.线路关闭ToolStripMenuItem.Name = "线路关闭ToolStripMenuItem";
+            this.线路关闭ToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
+            this.线路关闭ToolStripMenuItem.Text = "线路关闭";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1207, 680);
+            this.Controls.Add(this.sbLogin);
             this.Controls.Add(this.testBtn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ribbonControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
-            this.Text = "爱快管理系统 v0.1";
+            this.Text = "爱快管理系统 v0.2";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -544,28 +376,6 @@ namespace iKuaiManage
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem;
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem;
-        private System.Windows.Forms.TabPage tabPage3;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private System.Windows.Forms.TabPage tabPage1;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
@@ -575,9 +385,20 @@ namespace iKuaiManage
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button testBtn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 服务器IP1ToolStripMenuItem;
+        private DevExpress.XtraBars.BarStaticItem 服务器IP改为;
+        private DevExpress.XtraBars.BarEditItem beiL2tpServerIP;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private System.Windows.Forms.ToolStripMenuItem 服务器改为指定IPToolStripMenuItem;
+        private DevExpress.XtraBars.BarButtonItem bbiRefreshL2tpList;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem bbiLogin;
+        private DevExpress.XtraEditors.SimpleButton sbLogin;
+        private System.Windows.Forms.ToolStripMenuItem 线路开启ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 线路关闭ToolStripMenuItem;
     }
 }

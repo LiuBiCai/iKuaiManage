@@ -1,6 +1,5 @@
 ﻿using AppNerve.Expands.Serializer;
 using AppNerve.Http;
-using iKuaiManage.JSON;
 using Newtonsoft.Json;
 using System; 
 using System.Collections.Generic;
@@ -26,6 +25,7 @@ namespace iKuaiManage
         enum action        
         {
             show,
+            edit
         }
         enum funcName
         {
@@ -55,7 +55,7 @@ namespace iKuaiManage
         }
         #endregion
         #region VPN
-        public bool GetL2tpList()
+        public List<L2TP> GetL2tpList()
         {
             var postData = GetPostData(funcName.l2tp_client, action.show);
             var resultData = httpClient.PostData(callUrl,postData);
@@ -63,11 +63,42 @@ namespace iKuaiManage
             {
                 var change= resultData.Html.Replace("interface", "interf");
                 var result = JsonConvert.DeserializeObject<ResultData>(change);
+                return result.Data.data.ToList();
+                //return true;
+            }
+            return new List<L2TP>();
+        }
 
+        private bool ChangeL2tpSeverIP(L2TP l2TP)
+        {
+            var postData = GetPostData(funcName.l2tp_client, action.edit,l2TP);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("3000"))
+            {
                 return true;
             }
             return false;
         }
+        public bool ChangeL2tpSeverIP(List<L2TP> l2TPs,bool addOne, string ip="")
+        {
+            foreach(var l2tp in l2TPs)
+            {
+                if (addOne)
+                {
+                    var nowIPs = l2tp.server;
+                    var nowIP = nowIPs.Split('.');
+                    nowIP[3] = (int.Parse(nowIP[3]) + 1).ToString();
+                    l2tp.server = string.Join(".",nowIP);
+                }
+                else
+                {
+                    l2tp.server = ip;
+                }
+                ChangeL2tpSeverIP(l2tp);
+            }
+            return true;
+        }
+
 
         #endregion
 
@@ -130,19 +161,46 @@ namespace iKuaiManage
             {
             }
         }
-        private string GetPostData(funcName fun,action action)
-        {
-            string type = "";
-            string other = "";
-            if(fun==funcName.l2tp_client&&action==action.show)
-            {
-                type = "\"TYPE\":\"total,data\",";
-                other = "\"limit\":\"0,100\",\"ORDER_BY\":\"\",\"ORDER\":\"\"}";
-            }
-
-            var result = "{\"func_name\":\""+fun.ToString()+"\",\"action\":\""+action.ToString()+"\",\"param\":{"+type+other+"}";
+        private string GetParam(funcName fun, action action,string param)
+        {            
+            var result = "{\"func_name\":\"" + fun.ToString() + "\",\"action\":\"" + action.ToString() + "\",\"param\":{" + param + "}}";
             return result;
         }
+
+
+        private string GetPostData(funcName fun,action action)
+        {
+            string param = "";
+            if(fun==funcName.l2tp_client&&action==action.show)
+            {
+                var type = "\"TYPE\":\"total,data\",";
+                var  other = "\"limit\":\"0,500\",\"ORDER_BY\":\"\",\"ORDER\":\"\"";
+                param = type + other;
+            }
+
+            var result = GetParam(fun, action, param);
+            return result;
+        }
+        
+        /// <summary>
+        /// Change L2TP server IP
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="l2TP"></param>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        private string GetPostData(funcName fun,action action,L2TP l2TP)
+        {
+            string param = "\"comment\":\"\",\"server\":\""+l2TP.server+"\",\"gateway\":\"\",\"server_port\":1701,\"username\":\""+l2TP.username+"\",\"passwd\":\""+l2TP.passwd+"\",\"ipsec_secret\":\""+l2TP.ipsec_secret+"\",\"interface\":\""+l2TP.interf+"\",\"leftid\":\"\",\"rightid\":\"\",\"mru\":1450,\"timing_rst_switch\":0,\"timing_rst_week\":\"1234567\",\"timing_rst_time\":\"00:00,,\",\"updatetime\":0,\"cycle_rst_time\":0,\"qos_switch\":0,\"dns2\":\"\",\"dns1\":\"\",\"mppe\":\"\",\"ip_addr\":\"\",\"id\":"+l2TP.id+",\"enabled\":\""+l2TP.enabled+"\",\"mtu\":1450,\"name\":\""+l2TP.name+"\",\"week\":\"1234567\",\"mon9\":0,\"date1\":\"00:00\",\"date2\":\"\",\"date3\":\"\"";
+            
+
+
+            var result = GetParam(fun, action, param);
+            return result;
+        }
+        
+
+
         #endregion
 
     }

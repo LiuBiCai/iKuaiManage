@@ -52,6 +52,7 @@ namespace iKuaiManage
             if (login.Html.Contains("10000"))
             {
                 SaveCookie(user);
+               // MessageBox.Show("login success");
                 return true;
             }
             return false;
@@ -62,6 +63,7 @@ namespace iKuaiManage
         {
             var postData = GetPostData(funcName.l2tp_client, action.show);
             var resultData = httpClient.PostData(callUrl,postData);
+            Console.WriteLine(resultData.Html);
             if (resultData.Html.Contains("3000"))
             {
                 var change= resultData.Html.Replace("interface", "interf");
@@ -137,8 +139,43 @@ namespace iKuaiManage
             }
             return new List<StreamIpport>();
         }
-        
-
+        private bool EnableStreamIpport(string id, bool enable)
+        {
+            var postData = GetPostData(funcName.stream_ipport, enable ? action.up : action.down, id);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("3000"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool EnableStreamIpport(List<StreamIpport> StreamIpports, bool enable)
+        {
+            foreach (var streamIpport in StreamIpports)
+            {
+                EnableStreamIpport(streamIpport.id.ToString(), enable);
+            }
+            return true;
+        }
+        private bool ChangeStreamIpportWan(StreamIpport streamIpport)
+        {
+            var postData = GetPostData(funcName.stream_ipport, action.edit, streamIpport);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("3000"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool ChangeStreamIpportWan(List<StreamIpport> StreamIpports, string wan)
+        {
+            foreach (var streamIpport in StreamIpports)
+            {
+               streamIpport.interf = wan;
+               ChangeStreamIpportWan(streamIpport);
+            }
+            return true;
+        }
 
         #endregion
 
@@ -210,7 +247,7 @@ namespace iKuaiManage
         private string GetPostData(funcName fun,action action,string info="")
         {
             string param = "";
-            if (fun == funcName.l2tp_client)
+            //if (fun == funcName.l2tp_client)
             {
                 switch (action)
                 {
@@ -248,8 +285,22 @@ namespace iKuaiManage
             var result = GetParam(fun, action, param);
             return result;
         }
-        
 
+        /// <summary>
+        /// Change StreamIpport wan
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="StreamIpport"></param>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        private string GetPostData(funcName fun, action action, StreamIpport streamIpport)
+        {
+
+            string param = "\"comment\":\"\",\"nexthop\":\"\",\"interface\":\""+streamIpport.interf+"\",\"week\":\"1234567\",\"mode\":1,\"src_addr\":\""+streamIpport.src_addr+"\",\"time\":\"00:00-23:59\",\"type\":0,\"protocol\":\"any\",\"dst_addr\":\"\",\"src_port\":\"\",\"dst_port\":\"\",\"iface_band\":1,\"id\":"+streamIpport.id+",\"enabled\":\""+streamIpport.enabled+"\"";
+
+            var result = GetParam(fun, action, param);
+            return result;
+        }
 
         #endregion
 

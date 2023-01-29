@@ -16,7 +16,8 @@ namespace iKuaiManage
         iKuaiHelper iKuaiHelper = new iKuaiHelper();
         List<L2TP> l2tps = new List<L2TP>();
         List<StreamIpport> streamIpports = new List<StreamIpport>();
-       
+        string user = "admin2";
+        string pass = "Sc147258";
         public Form1()
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace iKuaiManage
         private void testBtn_Click(object sender, EventArgs e)
         {
            
-            //iKuaiHelper.LoginiKuai("admin2", "Sc147258");
+            //iKuaiHelper.LoginiKuai("admin", "Sc147258");
             //l2tps.Clear();
-           // iKuaiHelper.LoadCookie("admin2");
+           // iKuaiHelper.LoadCookie("admin");
            // l2tps.AddRange(iKuaiHelper.GetL2tpList());
            // Thread.Sleep(5000);
             gridView.RefreshData();
@@ -81,11 +82,28 @@ namespace iKuaiManage
         private void RefreshL2tpList()
         {
             l2tps.Clear();
-            iKuaiHelper.LoadCookie("admin2");
+            iKuaiHelper.LoadCookie(user);
             l2tps.AddRange(iKuaiHelper.GetL2tpList());
             gridView.RefreshData();
+            UpdateL2tpWan();
         }
 
+        private void UpdateL2tpWan()
+        {
+            bliWan.Strings.Clear();
+            foreach(var l2tp in l2tps)
+            {
+                if(!string.IsNullOrEmpty(l2tp.ip_addr))
+                {
+                    if(!bliWan.Strings.Contains(l2tp.name))
+                    {
+                        bliWan.Strings.Add(l2tp.name);
+
+                    }
+                }
+            }
+
+        }
         private void 服务器改为指定IPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int[] rows = gridView.GetSelectedRows();
@@ -113,7 +131,7 @@ namespace iKuaiManage
 
         private void sbLogin_Click(object sender, EventArgs e)
         {
-            iKuaiHelper.LoginiKuai("admin2", "Sc147258");
+            iKuaiHelper.LoginiKuai(user, pass);
         }
 
         private void 线路开启ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,19 +187,94 @@ namespace iKuaiManage
 
         private void bbiUpdateStreamIpportList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            RefresStreamIpportList();
+            RefreshStreamIpportList();
         }
-        private void RefresStreamIpportList()
+        private void RefreshStreamIpportList()
         {
             streamIpports.Clear();
-            iKuaiHelper.LoadCookie("admin2");
+            iKuaiHelper.LoadCookie(user);
             streamIpports.AddRange(iKuaiHelper.GetStreamIpportList());
             gridView1.RefreshData();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void 启用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int[] rows = gridView1.GetSelectedRows();
+            if (rows.Count() != 0)
+            {
+                var selectedStreamIpports = new List<StreamIpport>();
+                foreach (var row in rows)
+                {
+                    int pos = (int)gridView1.GetRowCellValue(row, "id");
+                    foreach (var info in streamIpports)
+                    {
+                        if (info.id == pos)
+                        {
+                            selectedStreamIpports.Add(info);
+                            break;
+                        }
+                    }
 
+                }
+                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, true);
+            }
+
+            RefreshStreamIpportList();
+        }
+
+        private void 停用ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rows = gridView1.GetSelectedRows();
+            if (rows.Count() != 0)
+            {
+                var selectedStreamIpports = new List<StreamIpport>();
+                foreach (var row in rows)
+                {
+                    int pos = (int)gridView1.GetRowCellValue(row, "id");
+                    foreach (var info in streamIpports)
+                    {
+                        if (info.id == pos)
+                        {
+                            selectedStreamIpports.Add(info);
+                            break;
+                        }
+                    }
+
+                }
+                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, false);
+            }
+
+            RefreshStreamIpportList();
+        }
+
+        private void 改为指定线路ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] rows = gridView1.GetSelectedRows();
+            if (rows.Count() != 0)
+            {
+                var selectedStreamIpports = new List<StreamIpport>();
+                foreach (var row in rows)
+                {
+                    int pos = (int)gridView1.GetRowCellValue(row, "id");
+                    foreach (var info in streamIpports)
+                    {
+                        if (info.id == pos)
+                        {
+                            selectedStreamIpports.Add(info);
+                            break;
+                        }
+                    }
+
+                }
+                iKuaiHelper.ChangeStreamIpportWan(selectedStreamIpports, bliWan.Caption);
+            }
+
+            RefreshStreamIpportList();
+        }
+
+        private void bliWan_ListItemClick(object sender, DevExpress.XtraBars.ListItemClickEventArgs e)
+        {
+            bliWan.Caption = bliWan.Strings[e.Index];
         }
     }
 }

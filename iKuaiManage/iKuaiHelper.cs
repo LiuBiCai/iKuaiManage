@@ -28,11 +28,13 @@ namespace iKuaiManage
             edit,
             up,
             down,
+            del_conn
         }
         enum funcName
         {
             l2tp_client,
-            stream_ipport
+            stream_ipport,
+            monitor_lanip
         }
         #endregion
         #region Init
@@ -149,11 +151,22 @@ namespace iKuaiManage
             }
             return false;
         }
-        public bool EnableStreamIpport(List<StreamIpport> StreamIpports, bool enable)
+        public bool EnableStreamIpport(List<StreamIpport> StreamIpports, bool enable,bool clear)
         {
             foreach (var streamIpport in StreamIpports)
             {
                 EnableStreamIpport(streamIpport.id.ToString(), enable);
+            }
+            if (clear)
+            {
+                foreach (var streamIpport in StreamIpports)
+                {
+                    var ips = streamIpport.src_addr.Split(',');
+                    foreach (var ip in ips)
+                    {
+                        ClearConn(ip);
+                    }
+                }
             }
             return true;
         }
@@ -167,16 +180,40 @@ namespace iKuaiManage
             }
             return false;
         }
-        public bool ChangeStreamIpportWan(List<StreamIpport> StreamIpports, string wan)
+        public bool ChangeStreamIpportWan(List<StreamIpport> StreamIpports, string wan,bool clear)
         {
             foreach (var streamIpport in StreamIpports)
             {
                streamIpport.interf = wan;
                ChangeStreamIpportWan(streamIpport);
             }
+            if(clear)
+            {
+                foreach (var streamIpport in StreamIpports)
+                {
+                    var ips = streamIpport.src_addr.Split(',');
+                    foreach(var ip in ips)
+                    {
+                        ClearConn(ip);
+                    }
+                }
+            }
             return true;
         }
 
+        #endregion
+        #region 终端监控
+        private bool ClearConn(string ip)
+        {
+            var postData = GetPostData(funcName.monitor_lanip, action.del_conn,ip);
+            var resultData = httpClient.PostData(callUrl, postData);
+            if (resultData.Html.Contains("30000"))
+            {
+                return true;
+            }
+            return false;
+        }
+        
         #endregion
 
         #region tool
@@ -251,9 +288,12 @@ namespace iKuaiManage
             {
                 switch (action)
                 {
+                    case action.del_conn:
+                        param= "\"ip\":\"" + info + "\"";
+                        break;
                     case action.show:
                         var type = "\"TYPE\":\"total,data\",";
-                        var other = "\"limit\":\"0,500\",\"ORDER_BY\":\"\",\"ORDER\":\"\"";
+                        var other = "\"limit\":\"0,1000\",\"ORDER_BY\":\"\",\"ORDER\":\"\"";
                         param = type + other;
                         break;
                     case action.up:

@@ -40,6 +40,8 @@ namespace iKuaiManage
         {
             gridControl.DataSource = l2tps;
             gridControl1.DataSource = streamIpports;
+            RefreshL2tpList();
+            RefreshStreamIpportList();
 
         }
 
@@ -216,7 +218,7 @@ namespace iKuaiManage
                     }
 
                 }
-                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, true);
+                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, true, bciAutoClearConn.Checked);
             }
 
             RefreshStreamIpportList();
@@ -241,7 +243,7 @@ namespace iKuaiManage
                     }
 
                 }
-                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, false);
+                iKuaiHelper.EnableStreamIpport(selectedStreamIpports, false,bciAutoClearConn.Checked);
             }
 
             RefreshStreamIpportList();
@@ -266,10 +268,11 @@ namespace iKuaiManage
                     }
 
                 }
-                iKuaiHelper.ChangeStreamIpportWan(selectedStreamIpports, bliWan.Caption);
+                iKuaiHelper.ChangeStreamIpportWan(selectedStreamIpports, bliWan.Caption,bciAutoClearConn.Checked);
             }
 
             RefreshStreamIpportList();
+           
         }
 
         private void bliWan_ListItemClick(object sender, DevExpress.XtraBars.ListItemClickEventArgs e)

@@ -16,7 +16,7 @@ namespace iKuaiManage
         iKuaiHelper iKuaiHelper = new iKuaiHelper();
         List<L2TP> l2tps = new List<L2TP>();
         List<StreamIpport> streamIpports = new List<StreamIpport>();
-        string user = "admin2";
+        string user = "admin";
         string pass = "Sc147258";
         public Form1()
         {
@@ -32,17 +32,22 @@ namespace iKuaiManage
            // l2tps.AddRange(iKuaiHelper.GetL2tpList());
            // Thread.Sleep(5000);
             gridView.RefreshData();
-
+            
             // Console.WriteLine(iKuaiHelper.MD5Encrypt32("Sc147258"));
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            IniConfig config = new IniConfig();
+            user = config.IniReadValue("ikuai", "user");
+            pass = config.IniReadValue("ikuai", "pass");
+            iKuaiHelper.iKuaiSeverIp= config.IniReadValue("ikuai", "server");
+            iKuaiHelper.LoginiKuai(user, pass);
             gridControl.DataSource = l2tps;
             gridControl1.DataSource = streamIpports;
             RefreshL2tpList();
             RefreshStreamIpportList();
-
+           
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
@@ -278,6 +283,11 @@ namespace iKuaiManage
         private void bliWan_ListItemClick(object sender, DevExpress.XtraBars.ListItemClickEventArgs e)
         {
             bliWan.Caption = bliWan.Strings[e.Index];
+        }
+
+        private void ribbonControl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

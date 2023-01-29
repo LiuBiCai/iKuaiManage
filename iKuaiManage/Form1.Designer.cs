@@ -131,6 +131,7 @@ namespace iKuaiManage
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
             this.ribbonControl.Size = new System.Drawing.Size(1207, 197);
+            this.ribbonControl.Click += new System.EventHandler(this.ribbonControl_Click);
             // 
             // skinRibbonGalleryBarItem
             // 
@@ -541,7 +542,7 @@ namespace iKuaiManage
             // 
             // testBtn
             // 
-            this.testBtn.Location = new System.Drawing.Point(833, 101);
+            this.testBtn.Location = new System.Drawing.Point(884, 86);
             this.testBtn.Name = "testBtn";
             this.testBtn.Size = new System.Drawing.Size(125, 59);
             this.testBtn.TabIndex = 6;
@@ -552,7 +553,7 @@ namespace iKuaiManage
             // sbLogin
             // 
             this.sbLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbLogin.ImageOptions.Image")));
-            this.sbLogin.Location = new System.Drawing.Point(1021, 101);
+            this.sbLogin.Location = new System.Drawing.Point(1057, 94);
             this.sbLogin.Name = "sbLogin";
             this.sbLogin.Size = new System.Drawing.Size(105, 42);
             this.sbLogin.TabIndex = 8;
@@ -595,7 +596,7 @@ namespace iKuaiManage
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
-            this.Text = "爱快管理系统 v0.4";
+            this.Text = "爱快管理系统 v0.5";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();

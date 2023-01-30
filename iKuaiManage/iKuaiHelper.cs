@@ -9,6 +9,7 @@ using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -195,16 +196,29 @@ namespace iKuaiManage
                     foreach(var ip in ips)
                     {
                         ClearConn(ip);
+                       
                     }
                 }
             }
             return true;
         }
-
+        public bool ClearAllConn(List<StreamIpport> StreamIpports)
+        {
+            foreach (var streamIpport in StreamIpports)
+            {
+                var ips = streamIpport.src_addr.Split(',');
+                foreach (var ip in ips)
+                {
+                    ClearConn(ip);
+                }
+            }
+            return true;
+        }
         #endregion
         #region 终端监控
         private bool ClearConn(string ip)
         {
+            Thread.Sleep(200);
             var postData = GetPostData(funcName.monitor_lanip, action.del_conn,ip);
             var resultData = httpClient.PostData(callUrl, postData);
             if (resultData.Html.Contains("30000"))

@@ -45,6 +45,7 @@ namespace iKuaiManage
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.bliWan = new DevExpress.XtraBars.BarListItem();
+            this.bciAutoClearConn = new DevExpress.XtraBars.BarCheckItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSkins = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,7 +85,8 @@ namespace iKuaiManage
             this.sbLogin = new DevExpress.XtraEditors.SimpleButton();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.bciAutoClearConn = new DevExpress.XtraBars.BarCheckItem();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiClearAllConn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -119,10 +121,11 @@ namespace iKuaiManage
             this.barEditItem2,
             this.barSubItem1,
             this.bliWan,
-            this.bciAutoClearConn});
+            this.bciAutoClearConn,
+            this.bbiClearAllConn});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl.MaxItemId = 12;
+            this.ribbonControl.MaxItemId = 13;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage,
@@ -221,6 +224,14 @@ namespace iKuaiManage
             this.bliWan.Name = "bliWan";
             this.bliWan.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.bliWan_ListItemClick);
             // 
+            // bciAutoClearConn
+            // 
+            this.bciAutoClearConn.BindableChecked = true;
+            this.bciAutoClearConn.Caption = "自动清除连接";
+            this.bciAutoClearConn.Checked = true;
+            this.bciAutoClearConn.Id = 11;
+            this.bciAutoClearConn.Name = "bciAutoClearConn";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -245,7 +256,8 @@ namespace iKuaiManage
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "端口分流";
             // 
@@ -464,21 +476,21 @@ namespace iKuaiManage
             // 启用ToolStripMenuItem
             // 
             this.启用ToolStripMenuItem.Name = "启用ToolStripMenuItem";
-            this.启用ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.启用ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.启用ToolStripMenuItem.Text = "启用";
             this.启用ToolStripMenuItem.Click += new System.EventHandler(this.启用ToolStripMenuItem_Click);
             // 
             // 停用ToolStripMenuItem
             // 
             this.停用ToolStripMenuItem.Name = "停用ToolStripMenuItem";
-            this.停用ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.停用ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.停用ToolStripMenuItem.Text = "停用";
             this.停用ToolStripMenuItem.Click += new System.EventHandler(this.停用ToolStripMenuItem_Click);
             // 
             // 改为指定线路ToolStripMenuItem
             // 
             this.改为指定线路ToolStripMenuItem.Name = "改为指定线路ToolStripMenuItem";
-            this.改为指定线路ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.改为指定线路ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.改为指定线路ToolStripMenuItem.Text = "改为指定线路";
             this.改为指定线路ToolStripMenuItem.Click += new System.EventHandler(this.改为指定线路ToolStripMenuItem_Click);
             // 
@@ -576,13 +588,18 @@ namespace iKuaiManage
             this.barEditItem1.Id = 3;
             this.barEditItem1.Name = "barEditItem1";
             // 
-            // bciAutoClearConn
+            // ribbonPageGroup4
             // 
-            this.bciAutoClearConn.BindableChecked = true;
-            this.bciAutoClearConn.Caption = "自动清除连接";
-            this.bciAutoClearConn.Checked = true;
-            this.bciAutoClearConn.Id = 11;
-            this.bciAutoClearConn.Name = "bciAutoClearConn";
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbiClearAllConn);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "连接";
+            // 
+            // bbiClearAllConn
+            // 
+            this.bbiClearAllConn.Caption = "清除所有连接";
+            this.bbiClearAllConn.Id = 12;
+            this.bbiClearAllConn.Name = "bbiClearAllConn";
+            this.bbiClearAllConn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiClearAllConn_ItemClick);
             // 
             // Form1
             // 
@@ -672,5 +689,7 @@ namespace iKuaiManage
         private DevExpress.XtraBars.BarListItem bliWan;
         private System.Windows.Forms.ToolStripMenuItem 改为指定线路ToolStripMenuItem;
         private DevExpress.XtraBars.BarCheckItem bciAutoClearConn;
+        private DevExpress.XtraBars.BarButtonItem bbiClearAllConn;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

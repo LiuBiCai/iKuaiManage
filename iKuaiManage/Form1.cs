@@ -289,5 +289,10 @@ namespace iKuaiManage
         {
 
         }
+
+        private void bbiClearAllConn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            iKuaiHelper.ClearAllConn(streamIpports);
+        }
     }
 }
